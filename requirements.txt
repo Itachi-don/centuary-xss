@@ -1,0 +1,4 @@
+aiohttp
+selenium
+termcolor
+pyfiglet
