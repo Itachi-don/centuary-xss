@@ -27,7 +27,7 @@
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/Itachi-don/-centuary-xss.git
+    git clone https://github.com/Itachi-don/centuary-xss.git
     cd centuary-xss
     ```
 
