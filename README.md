@@ -1,10 +1,10 @@
 # centuary-xss
 
-`centuary-xss` is an advanced cross-site scripting (XSS) detection and exploitation tool designed for security professionals and penetration testers. The tool incorporates various scanning techniques, including DOM-based, path-based, and parameter-based analyses, and supports both GET and POST methods. It is capable of avoiding false positives through contextual analysis and can generate detailed reports in multiple formats.
+`centuary-xss` is an advanced cross-site scripting (XSS) detection and exploitation tool designed for security professionals and penetration testers. The tool incorporates various scanning techniques, including DOM-based, path-based, and parameter-based analyses, and supports both GET and POST methods. The tool leverages asynchronous requests for efficiency and integrates with Selenium for DOM-based XSS detection.
 
 ## Features
 
-- **Payload Generation:** Generates a variety of XSS payloads, including those designed to bypass CSPs and WAFs.
+- **Custom Payloads**: Allows the use of custom payload files for testing.
 - **Asynchronous Scanning:** Utilizes asyncio and aiohttp for high-performance, non-blocking scans.
 - **Stealth Mode:** Introduces random delays to avoid detection during testing.
 - **DOM-Based XSS Detection:** Uses Selenium to detect XSS vulnerabilities in dynamic content.
@@ -20,7 +20,6 @@
 - selenium
 - urllib
 - pyfiglet
-- termcolor
 
 ## Installation
 
@@ -41,9 +40,13 @@
    - ChromeDriver for Chrome
    - GeckoDriver for Firefox
    - EdgeDriver for Edge
+- Browser drivers:
+  - Chrome: [Chromedriver](https://sites.google.com/chromium.org/driver/)
+  - Firefox: [Geckodriver](https://github.com/mozilla/geckodriver/releases)
+  - Edge: [Edgedriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
 
 ## Usage
-
+    The tool can be run from the command line with various options. Here’s a general overview of how to use it:
 ### Basic Usage
 
 ```bash
@@ -70,6 +73,14 @@ python centuary-xss.py -u https://example.com -m standard
 - `--edgedriver`: Path to EdgeDriver.
 
 ### Example Commands
+
+#### All Mode Scan
+
+```bash
+python centuary-xss.py -u http://example.com -p xss-payloads/xss1.txt -m all -o report.json
+```
+
+This command will perform all types of scans (`standard`, `stealth`, `dom`, `path`, `params`, `extension`) on the specified URL using payloads from `xss1.txt` and save the results in `report.json`.
 
 #### Stealth Mode Scan
 
@@ -104,6 +115,6 @@ Contributions are welcome! Please fork this repository, make your changes, and s
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-```
+````
 
-This `README.md` file provides a clear overview of your tool, its features, usage, and options. It also includes installation instructions and examples to help users get started quickly.
+Adjust the URLs, paths, and other specifics to match your tool and repository details.
